@@ -24,19 +24,34 @@ mongoose
 
 app.get("/", (req, res, next) => {
   Users.find()
-    .populate({ path: "order", model: Orders })
+    .populate({ path: "order.serviceId", model: Orders })
+    // .populate({
+    //   path: "order.serviceId",
+    //   // populate: {
+    //   //   path: "packageId",
+    //   // },
+    // })
     .then((doc) => {
       res.send(doc);
     });
+
+  // Users.find().then((doc) => {
+  //   console.log(JSON.stringify(doc[0].order[0].packages[0].packageId));
+  //   // var query = { serviceId :}
+  //   Orders.findById(doc[0].order[0].serviceId).then((doc) => {
+  //     console.log(doc);
+  //   });
+  //   res.send(doc);
+  // });
 });
 
-app.get("/orders", (req, res, next) => {
-  Orders.find()
-    .populate("order")
-    .then((doc) => {
-      res.send(doc);
-    });
-});
+// app.get("/orders", (req, res, next) => {
+//   Orders.find()
+//     .populate("order")
+//     .then((doc) => {
+//       res.send(doc);
+//     });
+// });
 
 app.post("/populate", (req, res, next) => {
   const id = req.body.id;
@@ -54,6 +69,18 @@ app.post("/", async (req, res, next) => {
   console.log("inside post");
   console.log(req.body);
   const user = await new Users(req.body).save();
+  return res.json({ user });
+});
+
+app.post("/orders", async (req, res, next) => {
+  //   const data = {
+  //     title: req.body.title,
+  //     content: req.body.content,
+  //     author: req.body.author,
+  //   };
+  console.log("inside post");
+  console.log(req.body);
+  const user = await new Orders(req.body).save();
   return res.json({ user });
 });
 

@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "16b5a5b9-6515-4b1c-8575-27568fa02114",
+		"name": "populate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "postUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"String\",\r\n    \"content\": \"String\",\r\n    \"author\": \"String\",\r\n    \"order\": [\r\n        {\r\n            \"serviceId\": \"60e2fba377ff8b277c66ca1d\",\r\n            \"packages\": [\r\n                {\r\n                    \"packageId\": \"60e2fba377ff8b277c66ca1e\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postOrder",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n            \"packages\": [\r\n                {\r\n                    \"name\": \"ppkg name\"\r\n                },\r\n                {\r\n                    \"name\": \"ppkg name 2\"\r\n                }\r\n            ]\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOrders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "putUser",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"String\",\r\n    \"content\": \"String\",\r\n    \"author\": \"String\",\r\n    \"order\": \"60d42b788e11ede17ab8f1bc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/1122",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"1122"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

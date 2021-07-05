@@ -11,11 +11,25 @@ var userSchema = new Schema(
     title: String,
     content: String,
     author: String,
-    order: {
-      type: Schema.Types.ObjectId,
-      ref: orders,
-    },
+    // order: {
+    //   type: Schema.Types.ObjectId,
+    //   ref: orders,
+    // },
+
+    order: [
+      {
+        serviceId: { type: Schema.Types.ObjectId, ref: orders },
+        packages: [
+          {
+            packageId: { type: Schema.Types.ObjectId, ref: orders },
+            packageQuantity: { type: Number, integer: true },
+            packagePrice: { type: Number, integer: true },
+          },
+        ],
+      },
+    ],
   },
+
   {
     // timestamps: true,
   }

@@ -7,22 +7,19 @@ var db2 = mongoose.createConnection(
   "mongodb+srv://dork7:hitler564@mcluster.7kxtv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 );
 
+const packages = [
+  {
+    packageId: mongoose.Schema.Types.ObjectId,
+    name: String,
+  },
+];
+
 var orderSchema = new Schema(
   {
-    email: {
+    name: {
       type: String,
-      match: /^\S+@\S+\.\S+$/,
-      required: true,
-      unique: true,
-      trim: true,
-      lowercase: true,
     },
-    password: {
-      type: String,
-      required: true,
-      minlength: 6,
-      maxlength: 128,
-    },
+    packages,
   },
   {
     // timestamps: true,
